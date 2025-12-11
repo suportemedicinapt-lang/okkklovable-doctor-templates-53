@@ -1,0 +1,180 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Medicina Esportiva - Azul Petróleo + Verde Esmeralda */
+    --background: 210 20% 98%;
+    --foreground: 200 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 200 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 200 25% 15%;
+
+    --primary: 175 60% 35%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 200 35% 92%;
+    --secondary-foreground: 200 25% 20%;
+
+    --muted: 200 20% 94%;
+    --muted-foreground: 200 15% 45%;
+
+    --accent: 175 45% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 200 20% 88%;
+    --input: 200 20% 88%;
+    --ring: 175 60% 35%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --hero-gradient: linear-gradient(135deg, hsl(200, 35%, 18%) 0%, hsl(175, 40%, 25%) 100%);
+    --card-shadow: 0 4px 20px -4px hsl(200 25% 15% / 0.08);
+    --card-shadow-hover: 0 12px 40px -8px hsl(200 25% 15% / 0.15);
+    --text-gradient: linear-gradient(135deg, hsl(175, 60%, 35%) 0%, hsl(200, 50%, 40%) 100%);
+    
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 200 25% 10%;
+    --foreground: 200 10% 95%;
+
+    --card: 200 25% 14%;
+    --card-foreground: 200 10% 95%;
+
+    --popover: 200 25% 14%;
+    --popover-foreground: 200 10% 95%;
+
+    --primary: 175 55% 45%;
+    --primary-foreground: 200 25% 10%;
+
+    --secondary: 200 25% 20%;
+    --secondary-foreground: 200 10% 90%;
+
+    --muted: 200 20% 18%;
+    --muted-foreground: 200 15% 60%;
+
+    --accent: 175 50% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 200 20% 22%;
+    --input: 200 20% 22%;
+    --ring: 175 55% 45%;
+
+    --hero-gradient: linear-gradient(135deg, hsl(200, 30%, 8%) 0%, hsl(175, 35%, 15%) 100%);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: var(--text-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-gradient {
+    background: var(--hero-gradient);
+  }
+
+  .card-shadow {
+    box-shadow: var(--card-shadow);
+  }
+
+  .card-shadow-hover {
+    box-shadow: var(--card-shadow-hover);
+  }
+
+  .placeholder-text {
+    @apply bg-primary/10 text-primary px-2 py-0.5 rounded font-medium;
+  }
+}
+
+@layer components {
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  .animate-slide-in {
+    animation: slideIn 0.5s ease-out forwards;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
